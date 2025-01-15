@@ -2,11 +2,32 @@
 #pragma once
 
 #include <string>
+#include <memory>
+#include "Job.h"
+#include "Character.h"
 
 using std::string;
+using std:: unique_ptr;
 
 class Player {
+    string name;
+    int level, currentHp, maxHp, coins, force;
+    unique_ptr<Job> job;
+    unique_ptr<Character> character;
+
 public:
+    Player(string name, unique_ptr<Job> job, unique_ptr<Character> character,int level = 1, int force = 5);
+
+    void buyPotions();
+
+    void levelUp();
+
+    void addCoins(int amount);
+
+    void takeDamage(int amount);
+
+    Job* getJob() const;
+
     /**
      * Gets the description of the player
      *
@@ -48,4 +69,8 @@ public:
      * @return - coins of the player
     */
     int getCoins() const;
+
+    int getCombatPower() const;
+
+
 };

@@ -2,6 +2,8 @@
 #pragma once
 
 #include <iostream>
+#include <memory>
+#include <vector>
 
 #include "Players/Player.h"
 #include "Events/Event.h"
@@ -9,6 +11,8 @@
 
 class MatamStory{
 private:
+    std::vector<std::unique_ptr<Player>> players;
+    std::vector<std::unique_ptr<Event>> events;
     unsigned int m_turnIndex;
 
     /**

@@ -3,6 +3,7 @@
 
 #include "Utilities.h"
 
+
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
 
     /*===== TODO: Open and read events file =====*/
@@ -34,6 +35,21 @@ void MatamStory::playTurn(Player& player) {
 void MatamStory::playRound() {
 
     printRoundStart();
+    unsigned int index = 0;
+    std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
+    std::vector<std::unique_ptr<Event>>::const_iterator its = events.begin();
+    while(it != players.end()) {
+        printTurnDetails(index, **it,**its);
+        **its(it);
+        printTurnOutcome(string outcome);
+        ++it;
+        ++index;
+
+        ++its;
+        if(its == events.end()){
+            its = events.begin();
+        }
+    }
 
     /*===== TODO: Play a turn for each player =====*/
 
@@ -42,6 +58,8 @@ void MatamStory::playRound() {
     printRoundEnd();
 
     printLeaderBoardMessage();
+
+    printLeaderBoardEntry(unsigned int i, const Player& player);
 
     /*===== TODO: Print leaderboard entry for each player using "printLeaderBoardEntry" =====*/
 
@@ -58,9 +76,12 @@ bool MatamStory::isGameOver() const {
 
 void MatamStory::play() {
     printStartMessage();
-    /*===== TODO: Print start message entry for each player using "printStartPlayerEntry" =====*/
+    unsigned int index = 0;
+    std::vector<std::unique_ptr<Player>>::const_iterator it;
+    for (it = players.begin(); it != players.end(); ++it, ++index) {
+        printStartPlayerEntry(index, **it);;
+    }
 
-    /*=========================================================================================*/
     printBarrier();
 
     while (!isGameOver()) {
@@ -68,7 +89,12 @@ void MatamStory::play() {
     }
 
     printGameOver();
-    /*===== TODO: Print either a "winner" message or "no winner" message =====*/
 
-    /*========================================================================*/
+    if(players.slsls == 10){
+        printWinner();
+    }
+    else{
+        printNoWinners();
+    }
+
 }
