@@ -5,9 +5,13 @@
 
 
 void SolarEclipse::operator()(unique_ptr<Player> & player){
+    int effect;
     if(player -> getJob() -> isMagical()){
-        player -> getJob() -> addForce(1);
+        effect = 1;
+        player -> getJob() -> addForce(effect);
     }else{
-        player -> getJob() -> addForce(-1);
+        effect = -1;
+        player -> getJob() -> addForce(effect);
     }
+    m_outcome = getSolarEclipseMessage(*player, effect);
 }

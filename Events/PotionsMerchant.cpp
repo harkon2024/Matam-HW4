@@ -6,4 +6,5 @@
 
 void PotionsMerchant::operator()(unique_ptr<Player> & player){
     player -> buyPotions();
+    m_outcome = getPotionsPurchaseMessage(*player, amountPurchased);
 };

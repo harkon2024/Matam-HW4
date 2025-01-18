@@ -6,20 +6,27 @@
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
 
-    /*===== TODO: Open and read events file =====*/
-
-    /*==========================================*/
-
-
-    /*===== TODO: Open and Read players file =====*/
-
-    /*============================================*/
-
-
     this->m_turnIndex = 1;
 }
 
 void MatamStory::playTurn(Player& player) {
+    {
+
+        m_eventIndex %= events.size();
+
+        printTurnDetails(m_turnIndex, player, *events[m_eventIndex]);
+
+
+        (*events[m_eventIndex])(player);
+
+
+        std::string outcome = events[m_eventIndex]->getOutcome();
+        printTurnOutcome(outcome);
+
+
+        m_turnIndex++;
+        m_eventIndex = (m_eventIndex + 1) % events.size();
+    }
 
     /**
      * Steps to implement (there may be more, depending on your design):
@@ -39,6 +46,7 @@ void MatamStory::playRound() {
     std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
     std::vector<std::unique_ptr<Event>>::const_iterator its = events.begin();
     while(it != players.end()) {
+        playTurn(**it);
         printTurnDetails(index, **it,**its);
         **its(it);
         printTurnOutcome(string outcome);
@@ -57,9 +65,13 @@ void MatamStory::playRound() {
 
     printRoundEnd();
 
+    std::vector<const Player*> sortedPlayers = sortPlayers(players);
     printLeaderBoardMessage();
+    for (unsigned int i = 0; i < sortedPlayers.size(); i++)
+    {
 
-    printLeaderBoardEntry(unsigned int i, const Player& player);
+        printLeaderBoardEntry(i+1, *sortedPlayers[i]);
+    }
 
     /*===== TODO: Print leaderboard entry for each player using "printLeaderBoardEntry" =====*/
 
@@ -69,9 +81,37 @@ void MatamStory::playRound() {
 }
 
 bool MatamStory::isGameOver() const {
-    /*===== TODO: Implement the game over condition =====*/
-    return false; // Replace this line
-    /*===================================================*/
+    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
+         it != players.end();
+         ++it)
+    {
+
+        if ((*it)->getLevel() >= 10)
+        {
+            return true;
+        }
+    }
+
+    bool allExhausted = true;
+    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
+         it != players.end();
+         ++it)
+    {
+        if ((*it)->getHealthPoints() > 0)
+        {
+            allExhausted = false;
+            break;
+        }
+    }
+
+    if (allExhausted)
+    {
+        return true;
+    }
+
+
+    return false;
+
 }
 
 void MatamStory::play() {
@@ -90,11 +130,30 @@ void MatamStory::play() {
 
     printGameOver();
 
-    if(players.slsls == 10){
-        printWinner();
+    if(hasWinner()){
+        const Player* winner = getWinner();
+        printWinner(winner);
     }
     else{
         printNoWinners();
     }
 
 }
+
+bool MatamStory::hasWinner() const
+{
+
+    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
+         it != players.end();
+         ++it)
+    {
+
+        if ((*it)->getLevel() >= 10)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+

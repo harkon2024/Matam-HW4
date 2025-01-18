@@ -144,3 +144,5 @@ std::string getPotionsPurchaseMessage(const Player& player, unsigned int amount)
 
 */
 std::string getSolarEclipseMessage(const Player& player, int effect);
+
+

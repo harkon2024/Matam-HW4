@@ -5,10 +5,13 @@
 #include "Monster.h"
 class Encounter :public Event{
     unique_ptr<Monster> monster;
+    std::string m_outcome;
 public:
     Encounter(unique_ptr<Monster> monster);
 
     ~Encounter() override = default;
+
+    std::string getOutcome() const override { return m_outcome; }
 
     void operator()(unique_ptr<Player> & player) override;
 

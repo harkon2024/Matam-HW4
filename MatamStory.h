@@ -14,6 +14,7 @@ private:
     std::vector<std::unique_ptr<Player>> players;
     std::vector<std::unique_ptr<Event>> events;
     unsigned int m_turnIndex;
+    int  m_eventIndex;
 
     /**
      * Playes a single turn for a player
@@ -56,4 +57,8 @@ public:
      * @return - void
     */
     void play();
+
+    bool hasWinner() const;
+
+    const Player* getWinner() const;
 };
