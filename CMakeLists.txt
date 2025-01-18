@@ -15,30 +15,31 @@ add_executable(Matam_HW4
         MatamStory.h
         Utilities.cpp
         Utilities.h
-        Player.cpp
-        SolarEclipse.h
-        PotionsMerchant.h
-        PotionsMerchant.cpp
-        Monster.h
-        Monster.cpp
-        Balrog.cpp
-        Pack.h
-        Slime.cpp
-        Slime.h
-        Snail.h
-        Snail.cpp
-        Pack.cpp
-        Encounter.h
-        Character.cpp
-        Responsible.h
-        RiskTaking.cpp
-        RiskTaking.h
-        SolarEclipse.cpp
-        Responsible.cpp
-        Warrior.h
+        Players/Player.cpp
+        Events/SolarEclipse.h
+        Events/PotionsMerchant.h
+        Events/PotionsMerchant.cpp
+        Events/Monster.h
+        Events/Monster.cpp
+        Events/Balrog.cpp
+        Events/Pack.h
+        Events/Slime.cpp
+        Events/Slime.h
+        Events/Snail.h
+        Events/Snail.cpp
+        Events/Pack.cpp
+        Events/Encounter.h
+        Players/Character.cpp
+        Players/Responsible.h
+        Players/RiskTaking.cpp
+        Players/RiskTaking.h
+        Events/SolarEclipse.cpp
+        Players/Responsible.cpp
+        Players/Warrior.h
         Players/Archer.h
-        Magician.h
-        Warrior.cpp
-        Encounter.cpp
-        Archer.cpp
-        Magician.cpp)
+        Players/Magician.h
+        Players/Warrior.cpp
+        Events/Encounter.cpp
+        Players/Archer.cpp
+        Players/Magician.cpp
+        Events/Event.cpp)

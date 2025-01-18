@@ -1,4 +1,5 @@
 #include "Player.h"
+using std::to_string;
 
 
 Player::Player(string name, unique_ptr<Job> job, unique_ptr<Character> character,int level, int force){
@@ -61,5 +62,5 @@ int Player::getCombatPower() const{
 }
 
 string Player::getDescription() const{
-    return name + "," + job -> getJobName() + "with" + character -> getCharacterName() +"character (level" + level + ", force" + force;
+    return name + "," + job -> getJobName() + "with" + character -> getCharacterName() +"character (level" + to_string(level) + ", force" + to_string(force);
 }

@@ -3,6 +3,10 @@
 
 #include "../Players/Player.h"
 
+
+using std::string;
+using std::to_string;
+
 class Event {
 public:
     Event();

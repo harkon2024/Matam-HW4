@@ -70,110 +70,117 @@ build CMakeFiles/Matam_HW4.dir/Utilities.cpp.o: CXX_COMPILER__Matam_HW4_unscanne
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
   OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
 
-build CMakeFiles/Matam_HW4.dir/Player.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Player.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Player.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Player.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Player.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Player.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/PotionsMerchant.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/PotionsMerchant.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/PotionsMerchant.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/PotionsMerchant.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/PotionsMerchant.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/PotionsMerchant.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Monster.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Monster.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Monster.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Monster.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Monster.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Monster.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Balrog.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Balrog.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Balrog.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Balrog.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Balrog.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Balrog.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Slime.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Slime.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Slime.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Slime.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Slime.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Slime.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Snail.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Snail.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Snail.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Snail.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Snail.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Snail.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Pack.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Pack.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Pack.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Pack.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Pack.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Pack.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Character.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Character.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Character.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Character.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Character.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Character.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/RiskTaking.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/RiskTaking.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/RiskTaking.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/RiskTaking.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/RiskTaking.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/RiskTaking.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/SolarEclipse.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/SolarEclipse.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/SolarEclipse.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/SolarEclipse.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/SolarEclipse.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/SolarEclipse.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Responsible.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Responsible.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Responsible.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Responsible.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Responsible.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Responsible.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/Warrior.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Warrior.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Warrior.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Warrior.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Warrior.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Warrior.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/Encounter.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Encounter.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Encounter.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Events/Encounter.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Encounter.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Encounter.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
-build CMakeFiles/Matam_HW4.dir/Archer.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Archer.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Archer.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Archer.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Archer.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Archer.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
 
-build CMakeFiles/Matam_HW4.dir/Magician.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Magician.cpp || cmake_object_order_depends_target_Matam_HW4
-  DEP_FILE = CMakeFiles/Matam_HW4.dir/Magician.cpp.o.d
+build CMakeFiles/Matam_HW4.dir/Players/Magician.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Players/Magician.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Players/Magician.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
-  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Players
+
+build CMakeFiles/Matam_HW4.dir/Events/Event.cpp.o: CXX_COMPILER__Matam_HW4_unscanned_Debug /Users/harrycohen/Downloads/Matam-HW4/Events/Event.cpp || cmake_object_order_depends_target_Matam_HW4
+  DEP_FILE = CMakeFiles/Matam_HW4.dir/Events/Event.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/harrycohen/Downloads/Matam-HW4/. -I/Users/harrycohen/Downloads/Matam-HW4/Events -I/Users/harrycohen/Downloads/Matam-HW4/Players
+  OBJECT_DIR = CMakeFiles/Matam_HW4.dir
+  OBJECT_FILE_DIR = CMakeFiles/Matam_HW4.dir/Events
 
 
 # =============================================================================
@@ -183,7 +190,7 @@ build CMakeFiles/Matam_HW4.dir/Magician.cpp.o: CXX_COMPILER__Matam_HW4_unscanned
 #############################################
 # Link the executable Matam_HW4
 
-build Matam_HW4: CXX_EXECUTABLE_LINKER__Matam_HW4_Debug CMakeFiles/Matam_HW4.dir/main.cpp.o CMakeFiles/Matam_HW4.dir/MatamStory.cpp.o CMakeFiles/Matam_HW4.dir/Utilities.cpp.o CMakeFiles/Matam_HW4.dir/Player.cpp.o CMakeFiles/Matam_HW4.dir/PotionsMerchant.cpp.o CMakeFiles/Matam_HW4.dir/Monster.cpp.o CMakeFiles/Matam_HW4.dir/Balrog.cpp.o CMakeFiles/Matam_HW4.dir/Slime.cpp.o CMakeFiles/Matam_HW4.dir/Snail.cpp.o CMakeFiles/Matam_HW4.dir/Pack.cpp.o CMakeFiles/Matam_HW4.dir/Character.cpp.o CMakeFiles/Matam_HW4.dir/RiskTaking.cpp.o CMakeFiles/Matam_HW4.dir/SolarEclipse.cpp.o CMakeFiles/Matam_HW4.dir/Responsible.cpp.o CMakeFiles/Matam_HW4.dir/Warrior.cpp.o CMakeFiles/Matam_HW4.dir/Encounter.cpp.o CMakeFiles/Matam_HW4.dir/Archer.cpp.o CMakeFiles/Matam_HW4.dir/Magician.cpp.o
+build Matam_HW4: CXX_EXECUTABLE_LINKER__Matam_HW4_Debug CMakeFiles/Matam_HW4.dir/main.cpp.o CMakeFiles/Matam_HW4.dir/MatamStory.cpp.o CMakeFiles/Matam_HW4.dir/Utilities.cpp.o CMakeFiles/Matam_HW4.dir/Players/Player.cpp.o CMakeFiles/Matam_HW4.dir/Events/PotionsMerchant.cpp.o CMakeFiles/Matam_HW4.dir/Events/Monster.cpp.o CMakeFiles/Matam_HW4.dir/Events/Balrog.cpp.o CMakeFiles/Matam_HW4.dir/Events/Slime.cpp.o CMakeFiles/Matam_HW4.dir/Events/Snail.cpp.o CMakeFiles/Matam_HW4.dir/Events/Pack.cpp.o CMakeFiles/Matam_HW4.dir/Players/Character.cpp.o CMakeFiles/Matam_HW4.dir/Players/RiskTaking.cpp.o CMakeFiles/Matam_HW4.dir/Events/SolarEclipse.cpp.o CMakeFiles/Matam_HW4.dir/Players/Responsible.cpp.o CMakeFiles/Matam_HW4.dir/Players/Warrior.cpp.o CMakeFiles/Matam_HW4.dir/Events/Encounter.cpp.o CMakeFiles/Matam_HW4.dir/Players/Archer.cpp.o CMakeFiles/Matam_HW4.dir/Players/Magician.cpp.o CMakeFiles/Matam_HW4.dir/Events/Event.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/Matam_HW4.dir
   POST_BUILD = :
