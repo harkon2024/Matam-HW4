@@ -3,6 +3,8 @@
 #define MATAM_HW4_ENCOUNTER_H
 #include "Event.h"
 #include "Monster.h"
+#include "Pack.h"
+
 class Encounter :public Event{
     unique_ptr<Monster> monster;
     std::string m_outcome;
@@ -13,9 +15,10 @@ public:
 
     std::string getOutcome() const override { return m_outcome; }
 
-    void operator()(unique_ptr<Player> & player) override;
+    void operator()(Player & player) override;
 
-    //construcot move ptr
+    string getDescription() const override;
+
 
 };
 #endif //MATAM_HW4_ENCOUNTER_H

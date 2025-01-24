@@ -4,14 +4,22 @@
 
 #ifndef MATAM_HW4_MONSTER_H
 #define MATAM_HW4_MONSTER_H
+#include <memory>
+#include <string>
+
+
+class Pack;
+
 class Monster{
 protected:
-    int force, level, loot,damage;
+    std::string name;
+    int level, force, loot,damage;
+
 
 public:
 
 
-    Monster(int, int,int,int);
+    Monster(const std::string& name, int level, int force,int loot,int damage);
 
     virtual int getCombatPower() const;
 
@@ -23,7 +31,18 @@ public:
 
     virtual int getDamage() const;
 
+    virtual int getLevel() const;
+
+    std::string getName() const;
+
+    virtual int getMemberCount() const;
+
     virtual ~Monster();
+
+    static std::unique_ptr<Monster> createMonster(const std::string& monsterName);
+
+    static std::unique_ptr<Monster> createPackMonster(Pack* pack);
+
 
 
 };

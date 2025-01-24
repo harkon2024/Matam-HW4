@@ -43,3 +43,7 @@ int Archer::getCombatPower(Player& player){
 std::string Archer::getJobName() const{
     return "Archer";
 }
+
+Archer::Archer() {
+
+}

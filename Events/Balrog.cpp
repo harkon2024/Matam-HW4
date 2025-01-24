@@ -4,7 +4,7 @@
 #include "Balrog.h"
 
 
-Balrog::Balrog():Monster(1,15,100,9001){
+Balrog::Balrog():Monster("Balrog",15,1,100,9001){
 
 }
 

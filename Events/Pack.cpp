@@ -2,12 +2,18 @@
 // Created by harry cohen on 2025-01-13.
 //
 #include "Pack.h"
+#include <memory>
+#include <vector>
+using namespace std;
 
-Pack::Pack() : Monster(0, 0, 0, 0) {
+
+Pack::Pack() : Monster("Pack",0, 0, 0, 0) {
 
 }
 
-void addMonster(unique_ptr<Monster> &);
+void Pack::addMonster(unique_ptr<Monster> monster){
+    members.push_back(std::move(monster));
+}
 
 void Pack::winBattle() {
     std::vector<std::unique_ptr<Monster>>::const_iterator it;
@@ -48,4 +54,17 @@ int Pack::getDamage() const {
         totalDamage += (*it)->getDamage();
     }
     return totalDamage;
+}
+
+int Pack::getLevel() const {
+    int totalLevel = 0;
+    std::vector<std::unique_ptr<Monster>>::const_iterator it;
+    for (it = members.begin(); it != members.end(); ++it) {
+        totalLevel += (*it)->getLevel();
+    }
+    return totalLevel;
+}
+
+int Pack::getMemberCount() const{
+return members.size();
 }

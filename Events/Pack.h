@@ -17,11 +17,11 @@ public:
 
     Pack();
 
-    void addMonster(unique_ptr<Monster>&);
+    void addMonster(unique_ptr<Monster>);
 
-    void winBattle() override;
+    void winBattle()  override;
 
-    void loseBattle() override;
+    void loseBattle() override ;
 
     int getCombatPower() const override;
 
@@ -29,7 +29,11 @@ public:
 
     int getDamage() const override;
 
-    ~Pack() override = default;
+    int getLevel() const override;
+
+    ~Pack() = default;
+
+    int getMemberCount() const override;
 
 };
 #endif //MATAM_HW4_PACK_H

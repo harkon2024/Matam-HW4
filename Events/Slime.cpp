@@ -5,7 +5,7 @@
 #include "Slime.h"
 
 
-Slime::Slime():Monster(1,12,5,25){
+Slime::Slime():Monster("Slime",12,1,5,25){
 }
 
 void Slime::winBattle(){

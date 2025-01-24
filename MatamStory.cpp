@@ -2,158 +2,204 @@
 #include "MatamStory.h"
 
 #include "Utilities.h"
+#include "PotionsMerchant.h"
+#include "SolarEclipse.h"
+#include "Encounter.h"
+#include "Pack.h"
 
+#include <sstream>
 
-MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
+MatamStory::MatamStory(std::istream &eventsStream, std::istream &playersStream) {
+    if (!eventsStream) {
+        throw std::invalid_argument("Error: Invalid or empty events stream.");
+    }
+    if (!playersStream) {
+        throw std::invalid_argument("Error: Invalid or empty players stream.");
+    }
+
+    // Parse players
+    std::string line;
+    while (std::getline(playersStream, line)) {
+        std::istringstream ss(line);
+        std::string name, jobType, characterType;
+
+        if (!(ss >> name >> jobType >> characterType)) {
+            std::cerr << "Invalid Players File" << std::endl;
+            std::exit(EXIT_FAILURE); // Exit the program with an error code
+        }
+
+        std::shared_ptr<Job> job;
+        std::shared_ptr<Character> character;
+        try {
+            job = Job::createJob(jobType);
+            character = Character::createCharacter(characterType);
+        } catch (const std::exception &e) {
+            std::cerr << "Invalid Players File" << std::endl;
+            std::exit(EXIT_FAILURE); // Exit the program with an error code
+        }
+
+        players.emplace_back(name, job, character);
+    }
+
+    // Parse events
+    while (std::getline(eventsStream, line)) {
+        std::istringstream ss(line);
+        std::string eventType;
+        ss >> eventType;
+
+        try {
+            if (eventType == "Slime" || eventType == "Balrog" || eventType == "Snail") {
+                events.emplace_back(std::make_unique<Encounter>(Monster::createMonster(eventType)));
+            } else if (eventType == "PotionsMerchant") {
+                events.emplace_back(std::make_unique<PotionsMerchant>());
+            } else if (eventType == "SolarEclipse") {
+                events.emplace_back(std::make_unique<SolarEclipse>());
+            } else if (eventType == "Pack") {
+                Pack *pack = new Pack();
+                int k;
+
+                if (!(ss >> k) || k <= 0) {
+                    std::cerr << "Invalid Events File" << std::endl;
+                    delete pack; // Prevent memory leak
+                    std::exit(EXIT_FAILURE); // Exit the program with an error code
+                }
+
+                for (int i = 0; i < k; i++) {
+                    std::string monsterType;
+                    if (!(ss >> monsterType)) {
+                        std::cerr << "Invalid Events File" << std::endl;
+                        delete pack; // Prevent memory leak
+                        std::exit(EXIT_FAILURE); // Exit the program with an error code
+                    }
+                    try {
+                        pack->addMonster(Monster::createMonster(monsterType));
+                    } catch (const std::exception &e) {
+                        std::cerr << "Invalid Events File" << std::endl;
+                        delete pack; // Prevent memory leak
+                        std::exit(EXIT_FAILURE); // Exit the program with an error code
+                    }
+                }
+
+                events.emplace_back(std::make_unique<Encounter>(std::unique_ptr<Monster>(pack)));
+            } else {
+                std::cerr << "Invalid Events File" << std::endl;
+                std::exit(EXIT_FAILURE); // Exit the program with an error code
+            }
+        } catch (const std::exception &e) {
+            std::cerr << "Invalid Events File" << std::endl;
+            std::exit(EXIT_FAILURE); // Exit the program with an error code
+        }
+    }
 
     this->m_turnIndex = 1;
 }
+    void MatamStory::handlePack(std::istringstream &ss, Pack *parentPack) {
+        std::string word;
+        while (std::getline(ss, word, ' ')) {
+            if (word == "Pack") {
+                Pack *nestedPack = new Pack();
+                std::getline(ss, word, ' ');
+                int k = std::stoi(word);
+                for (int i = 0; i < k; ++i) {
+                    std::getline(ss, word, ' ');
+                    handlePack(ss, nestedPack);
+                }
+                parentPack->addMonster(Monster::createPackMonster(nestedPack));
+            } else {
+                parentPack->addMonster(Monster::createMonster(word));
+            }
+        }
+    }
 
-void MatamStory::playTurn(Player& player) {
-    {
 
-        m_eventIndex %= events.size();
-
-        printTurnDetails(m_turnIndex, player, *events[m_eventIndex]);
-
-
-        (*events[m_eventIndex])(player);
-
-
-        std::string outcome = events[m_eventIndex]->getOutcome();
-        printTurnOutcome(outcome);
-
-
+    void MatamStory::playTurn(Player &player, std::unique_ptr<Event> &event) {
+        printTurnDetails(this->m_turnIndex, player, *event);
+        (*event)(player);
+        printTurnOutcome((event)->getOutcome());
         m_turnIndex++;
-        m_eventIndex = (m_eventIndex + 1) % events.size();
     }
 
-    /**
-     * Steps to implement (there may be more, depending on your design):
-     * 1. Get the next event from the events list
-     * 2. Print the turn details with "printTurnDetails"
-     * 3. Play the event
-     * 4. Print the turn outcome with "printTurnOutcome"
-    */
+    void MatamStory::playRound() {
 
-    m_turnIndex++;
-}
+        printRoundStart();
+        static std::vector<std::unique_ptr<Event>>::iterator its = events.begin();
 
-void MatamStory::playRound() {
+        for (std::vector<Player>::iterator it = players.begin(); it != players.end(); ++it) {
+            if (!it->isKnockedOut()) {
+                playTurn(*it, *its);
+                ++its;
 
-    printRoundStart();
-    unsigned int index = 0;
-    std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
-    std::vector<std::unique_ptr<Event>>::const_iterator its = events.begin();
-    while(it != players.end()) {
-        playTurn(**it);
-        printTurnDetails(index, **it,**its);
-        **its(it);
-        printTurnOutcome(string outcome);
-        ++it;
-        ++index;
-
-        ++its;
-        if(its == events.end()){
-            its = events.begin();
+                if (its == events.end()) {
+                    its = events.begin();
+                }
+            }
         }
+
+
+
+        printRoundEnd();
+
+        std::vector<Player> sortedPlayers = players;
+        std::sort(sortedPlayers.begin(), sortedPlayers.end());
+        printLeaderBoardMessage();
+        for (int i = sortedPlayers.size() - 1; i >= 0; i--) {
+            printLeaderBoardEntry(sortedPlayers.size() - i, sortedPlayers[i]);
+        }
+
+
+        printBarrier();
     }
 
-    /*===== TODO: Play a turn for each player =====*/
+    bool MatamStory::isGameOver() const {
+        for (std::vector<Player>::const_iterator it = players.begin(); it != players.end(); ++it) {
+            if ((it)->getLevel() >= 10) {
+                return true;
+            }
+        }
 
-    /*=============================================*/
-
-    printRoundEnd();
-
-    std::vector<const Player*> sortedPlayers = sortPlayers(players);
-    printLeaderBoardMessage();
-    for (unsigned int i = 0; i < sortedPlayers.size(); i++)
-    {
-
-        printLeaderBoardEntry(i+1, *sortedPlayers[i]);
-    }
-
-    /*===== TODO: Print leaderboard entry for each player using "printLeaderBoardEntry" =====*/
-
-    /*=======================================================================================*/
-
-    printBarrier();
-}
-
-bool MatamStory::isGameOver() const {
-    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
-         it != players.end();
-         ++it)
-    {
-
-        if ((*it)->getLevel() >= 10)
-        {
+        bool allExhausted = true;
+        for (std::vector<Player>::const_iterator it = players.begin(); it != players.end() && allExhausted; ++it) {
+            if (!(it->isKnockedOut())) {
+                allExhausted = false;
+            }
+        }
+        if (allExhausted) {
             return true;
         }
+        return false;
     }
 
-    bool allExhausted = true;
-    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
-         it != players.end();
-         ++it)
-    {
-        if ((*it)->getHealthPoints() > 0)
-        {
-            allExhausted = false;
-            break;
+    void MatamStory::play() {
+        printStartMessage();
+        unsigned int index = 1;
+        std::vector<Player>::const_iterator it;
+        for (it = players.begin(); it != players.end(); ++it, ++index) {
+            printStartPlayerEntry(index, *it);;
+        }
+
+        printBarrier();
+        while (!isGameOver()) {
+            playRound();
+        }
+
+        printGameOver();
+
+        if (hasWinner()) {
+            printWinner(*getWinner());
+        } else {
+            printNoWinners();
         }
     }
 
-    if (allExhausted)
-    {
-        return true;
+    bool MatamStory::hasWinner() {
+        return getWinner() != players.end();
     }
 
-
-    return false;
-
-}
-
-void MatamStory::play() {
-    printStartMessage();
-    unsigned int index = 0;
-    std::vector<std::unique_ptr<Player>>::const_iterator it;
-    for (it = players.begin(); it != players.end(); ++it, ++index) {
-        printStartPlayerEntry(index, **it);;
-    }
-
-    printBarrier();
-
-    while (!isGameOver()) {
-        playRound();
-    }
-
-    printGameOver();
-
-    if(hasWinner()){
-        const Player* winner = getWinner();
-        printWinner(winner);
-    }
-    else{
-        printNoWinners();
-    }
-
-}
-
-bool MatamStory::hasWinner() const
-{
-
-    for (std::vector<std::unique_ptr<Player>>::const_iterator it = players.begin();
-         it != players.end();
-         ++it)
-    {
-
-        if ((*it)->getLevel() >= 10)
-        {
-            return true;
+    std::vector<Player>::const_iterator MatamStory::getWinner() {
+        for (std::vector<Player>::const_iterator it = players.begin(); it != players.end();
+             ++it) {
+            if (it->getLevel() >= 10)
+                return it;
         }
+        return players.end();
     }
-
-    return false;
-}
-

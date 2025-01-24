@@ -97,6 +97,10 @@ void printGameOver();
 */
 void printWinner(const Player& player);
 
+
+
+const Player* getWinner();
+
 /**
  * Prints a message for when there are no winners
  *

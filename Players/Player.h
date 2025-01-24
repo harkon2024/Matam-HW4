@@ -6,19 +6,22 @@
 #include "Job.h"
 #include "Character.h"
 
+class Character;
+
 using std::string;
 using std:: unique_ptr;
+using namespace std;
 
 class Player {
     string name;
     int level, currentHp, maxHp, coins, force;
-    unique_ptr<Job> job;
-    unique_ptr<Character> character;
+    shared_ptr<Job> job;
+    shared_ptr<Character> character;
 
 public:
-    Player(string name, unique_ptr<Job> job, unique_ptr<Character> character,int level = 1, int force = 5);
+    Player(string name, shared_ptr<Job> job, shared_ptr<Character> character,int level = 1, int force = 5);
 
-    void buyPotions();
+    int buyPotions();
 
     void levelUp();
 
@@ -71,6 +74,14 @@ public:
     int getCoins() const;
 
     int getCombatPower() const;
+
+    bool operator < (const Player& other) const;
+
+    bool isKnockedOut() const;
+
+    void setForce(int newForce);
+
+
 
 
 };

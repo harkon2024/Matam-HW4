@@ -12,16 +12,14 @@ protected:
     std::string m_outcome;
 public:
     Event();
+
     virtual ~ Event();
 
     virtual std::string getOutcome() const { return m_outcome; }
 
-    virtual void operator()(unique_ptr<Player> & player)= 0;
+    virtual void operator()(Player & player)= 0;
 
-    /**
-     * Gets the description of the event
-     *
-     * @return - the description of the event
-    */
-    string getDescription() const;
+    virtual string getDescription() const = 0;
+
+    static std::unique_ptr<Event> createEvent(const std::string& eventType);
 };

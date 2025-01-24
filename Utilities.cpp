@@ -1,6 +1,8 @@
 
 #include "Utilities.h"
 
+#include "Player.h"
+
 #include <iostream>
 
 using std::cout;
@@ -115,5 +117,7 @@ string getSolarEclipseMessage(const Player& player, int effect) {
         return out + " their force was not changed!";
     }
 }
+
+
 
 

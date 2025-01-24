@@ -15,7 +15,7 @@ public:
 
     std::string getCharacterName() const override;
 
-    void buyPotions(int& coins,int& currentHp,int maxHp ) override;
+    int buyPotions(int& coins,int& currentHp,int maxHp ) override;
 
 
 

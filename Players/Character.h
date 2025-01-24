@@ -8,11 +8,13 @@
 class Character{
 
 public:
-    virtual void buyPotions(int& coins,int& currentHp, int maxHp) = 0;
+    virtual int buyPotions(int& coins,int& currentHp, int maxHp) = 0;
 
     virtual std::string getCharacterName() const =0;
 
     virtual ~Character()= default;
+
+    static std::shared_ptr<Character> createCharacter(const std::string& characterName);
 
 };
 #endif //MATAM_HW4_CHARACTER_H

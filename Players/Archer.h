@@ -5,6 +5,7 @@
 #ifndef MATAM_HW4_ARCHER_H
 #define MATAM_HW4_ARCHER_H
 #include "Job.h"
+#include "Player.h"
 class Archer : public Job {
 
 public:

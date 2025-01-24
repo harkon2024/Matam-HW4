@@ -9,11 +9,13 @@ class PotionsMerchant : public Event{
     std::string m_outcome;
 public:
 
-    void operator()(unique_ptr<Player> & player) override;
+    void operator()(Player & player) override;
 
     std::string getOutcome() const override { return m_outcome; }
 
     ~PotionsMerchant() override = default;
+
+    std::string getDescription() const override;
 
 };
 #endif //MATAM_HW4_POTIONSMERCHANT_H

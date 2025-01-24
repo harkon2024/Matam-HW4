@@ -7,14 +7,14 @@
 
 #include "Players/Player.h"
 #include "Events/Event.h"
+#include "Pack.h"
 
 
 class MatamStory{
 private:
-    std::vector<std::unique_ptr<Player>> players;
-    std::vector<std::unique_ptr<Event>> events;
+    std::vector<Player> players;
+    std::vector<unique_ptr<Event>> events;
     unsigned int m_turnIndex;
-    int  m_eventIndex;
 
     /**
      * Playes a single turn for a player
@@ -23,7 +23,7 @@ private:
      *
      * @return - void
     */
-    void playTurn(Player& player);
+    void playTurn(Player &player,std::unique_ptr<Event> &event);
 
     /**
      * Plays a single round of the game
@@ -38,6 +38,12 @@ private:
      * @return - true if the game is over, false otherwise
     */
     bool isGameOver() const;
+
+    bool hasWinner();
+
+    std::vector<Player> ::const_iterator getWinner();
+
+    void handlePack(std::istringstream& ss, Pack* parentPack);
 
 public:
     /**
@@ -58,7 +64,5 @@ public:
     */
     void play();
 
-    bool hasWinner() const;
 
-    const Player* getWinner() const;
 };

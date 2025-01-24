@@ -43,3 +43,5 @@ int Magician::getCombatPower(Player& player){
 std::string Magician::getJobName() const{
 return "Magician";
 }
+
+Magician::Magician() {}

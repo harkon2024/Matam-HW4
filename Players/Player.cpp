@@ -2,20 +2,20 @@
 using std::to_string;
 
 
-Player::Player(string name, unique_ptr<Job> job, unique_ptr<Character> character,int level, int force){
+Player::Player(string name, shared_ptr<Job> job, shared_ptr<Character> character,int level, int force){
     this -> name = name;
     this -> level = level;
     this -> force = force;
     this -> job = std::move(job);
     this -> character = std::move(character);
-    maxHp = job -> getMaxhp();
+    maxHp = this ->job -> getMaxhp();
     currentHp = maxHp;
-    coins = job -> getStartingCoins();
+    coins = this ->job -> getStartingCoins();
 }
 
 
-void Player::buyPotions(){
-    character-> buyPotions(coins, currentHp, maxHp);
+int Player::buyPotions(){
+   return character -> buyPotions(coins, currentHp, maxHp);
 }
 
 
@@ -61,6 +61,25 @@ int Player::getCombatPower() const{
     return job->getCombatPower(*const_cast<Player*>(this));
 }
 
-string Player::getDescription() const{
-    return name + "," + job -> getJobName() + "with" + character -> getCharacterName() +"character (level" + to_string(level) + ", force" + to_string(force);
+std::string Player::getDescription() const {
+    return name + ", " + job->getJobName() + " with " + character->getCharacterName() +
+           " character (level " + std::to_string(level) + ", force " + std::to_string(force) + ")";
+}
+
+bool Player::operator<(const Player& other) const {
+    if (level != other.level) {
+        return level < other.level;
+    }
+    if (coins != other.coins) {
+        return coins < other.coins;
+    }
+    return name < other.name;
+}
+
+bool Player::isKnockedOut() const{
+    return(currentHp <= 0);
+}
+
+void Player::setForce(int newForce) {
+    this->force = newForce;
 }

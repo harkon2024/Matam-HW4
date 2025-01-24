@@ -5,14 +5,20 @@
 #include "RiskTaking.h"
 
 
-void RiskTaking::buyPotions(int& coins,int& currentHp,int maxHp ){
+int RiskTaking::buyPotions(int& coins,int& currentHp,int maxHp ){
+    int count = 0;
     if(currentHp < 50){
         coins -= 5;
         currentHp += 10;
-        if(currentHp > maxHp) currentHp = maxHp;
+        count++;
+        if(currentHp > maxHp){ currentHp = maxHp;}
     }
+    return count;
 }
 
 std::string RiskTaking::getCharacterName() const{
     return "Risk Taking";
+}
+
+RiskTaking::RiskTaking() {
 }

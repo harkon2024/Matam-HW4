@@ -4,7 +4,7 @@
 #include "Snail.h"
 
 
-Snail::Snail():Monster(1,5,2,10){
+Snail::Snail():Monster("Snail",5,1,2,10){
 }
 
 void Snail::winBattle(){}

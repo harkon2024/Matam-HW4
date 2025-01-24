@@ -5,6 +5,7 @@
 #ifndef MATAM_HW4_MAGICIAN_H
 #define MATAM_HW4_MAGICIAN_H
 #include "Job.h"
+#include "Player.h"
 class Magician : public Job {
 
 public:
