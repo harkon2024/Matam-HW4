@@ -17,7 +17,7 @@ int RiskTaking::buyPotions(int& coins,int& currentHp,int maxHp ){
 }
 
 std::string RiskTaking::getCharacterName() const{
-    return "Risk Taking";
+    return "RiskTaking";
 }
 
 RiskTaking::RiskTaking() {

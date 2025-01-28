@@ -7,11 +7,11 @@
 
 void SolarEclipse::operator()(Player &player) {
     int effect = player.getJob()->isMagical() ? 1 : -1;
-    int newForce = player.getJob()->addForce(effect, player); // Compute new force
-    player.setForce(newForce); // Explicitly update the player's force
+    int newForce = player.getJob()->addForce(effect, player);
+    player.setForce(newForce);
     m_outcome = getSolarEclipseMessage(player, effect);
 }
 
 std::string SolarEclipse::getDescription() const  {
-return "Solar Eclipse Description";
+return "SolarEclipse";
 }

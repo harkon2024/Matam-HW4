@@ -10,5 +10,6 @@ void PotionsMerchant::operator()(Player & player){
 }
 
 std::string PotionsMerchant::getDescription() const {
-return "Potions Merchant Description";
+return "Potions"
+       "Merchant";
 }

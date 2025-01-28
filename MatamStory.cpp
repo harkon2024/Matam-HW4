@@ -6,7 +6,7 @@
 #include "SolarEclipse.h"
 #include "Encounter.h"
 #include "Pack.h"
-
+#include <fstream>
 #include <sstream>
 
 MatamStory::MatamStory(std::istream &eventsStream, std::istream &playersStream) {
@@ -16,32 +16,12 @@ MatamStory::MatamStory(std::istream &eventsStream, std::istream &playersStream) 
     if (!playersStream) {
         throw std::invalid_argument("Error: Invalid or empty players stream.");
     }
-
-    // Parse players
-    std::string line;
-    while (std::getline(playersStream, line)) {
-        std::istringstream ss(line);
-        std::string name, jobType, characterType;
-
-        if (!(ss >> name >> jobType >> characterType)) {
-            std::cerr << "Invalid Players File" << std::endl;
-            std::exit(EXIT_FAILURE); // Exit the program with an error code
-        }
-
-        std::shared_ptr<Job> job;
-        std::shared_ptr<Character> character;
-        try {
-            job = Job::createJob(jobType);
-            character = Character::createCharacter(characterType);
-        } catch (const std::exception &e) {
-            std::cerr << "Invalid Players File" << std::endl;
-            std::exit(EXIT_FAILURE); // Exit the program with an error code
-        }
-
-        players.emplace_back(name, job, character);
+    if (eventsStream.peek() == std::ifstream::traits_type::eof()) {
+        std::cerr << "Invalid Events File" << std::endl;
+        std::exit(EXIT_FAILURE);
     }
 
-    // Parse events
+    std::string line;
     while (std::getline(eventsStream, line)) {
         std::istringstream ss(line);
         std::string eventType;
@@ -89,6 +69,28 @@ MatamStory::MatamStory(std::istream &eventsStream, std::istream &playersStream) 
             std::cerr << "Invalid Events File" << std::endl;
             std::exit(EXIT_FAILURE); // Exit the program with an error code
         }
+    }
+
+    while (std::getline(playersStream, line)) {
+        std::istringstream ss(line);
+        std::string name, jobType, characterType;
+
+        if (!(ss >> name >> jobType >> characterType)) {
+            std::cerr << "Invalid Players File" << std::endl;
+            std::exit(EXIT_FAILURE); // Exit the program with an error code
+        }
+
+        std::shared_ptr<Job> job;
+        std::shared_ptr<Character> character;
+        try {
+            job = Job::createJob(jobType);
+            character = Character::createCharacter(characterType);
+        } catch (const std::exception &e) {
+            std::cerr << "Invalid Players File" << std::endl;
+            std::exit(EXIT_FAILURE); // Exit the program with an error code
+        }
+
+        players.emplace_back(name, job, character);
     }
 
     this->m_turnIndex = 1;

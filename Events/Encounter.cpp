@@ -6,7 +6,7 @@
 
 
 void Encounter::operator()(Player & player){
-    if(monster-> getCombatPower() >= player.getJob()-> getCombatPower(player)){
+    if(monster-> getCombatPower() > player.getJob()-> getCombatPower(player)){
         player.getJob()-> loseBattle(player, *monster);
         monster -> winBattle();
         m_outcome = getEncounterLostMessage(player, monster -> getDamage());

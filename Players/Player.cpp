@@ -73,7 +73,7 @@ bool Player::operator<(const Player& other) const {
     if (coins != other.coins) {
         return coins < other.coins;
     }
-    return name < other.name;
+    return name > other.name;
 }
 
 bool Player::isKnockedOut() const{
